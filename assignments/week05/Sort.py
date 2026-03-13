@@ -11,10 +11,40 @@ def bubble_sort(a):
             break
     return a
 
+def improved_bubble_sort(a):
+    n=len(a)
+    regibal=0
+    regijobb=n-1
+    rendben=False
+    while not rendben:
+        rendben=True
+        jobb=0
+        for i in range(regibal,regijobb):
+            if a[i]>a[i+1]:
+                rendben=False
+                a[i],a[i+1]=a[i+1],a[i]
+                if i>jobb:
+                    jobb=i
+        if not rendben:
+            regijobb=jobb
+            bal=n
+            for i in range(regijobb,regibal,-1):
+                if a[i-1]>a[i]:
+                    rendben=False
+                    a[i],a[i-1]=a[i-1],a[i]
+                    if i<bal:
+                        bal=i
+            regibal=bal
+    return a
+
+
 a=[7,3,9,2,6]
 print("Rendezetlen tomb:",a)
 rendezett_tomb=bubble_sort(a)
 print("Rendezett tomb optimalizalt bubble sorttal:",rendezett_tomb)
+b=[1,4,0,-4,9]
+rendezett_tomb1=improved_bubble_sort(b)
+print("Rendezett tomb optimalizalt bubble sorttal:",rendezett_tomb1)
 
 def selection_sort(a):
     n=len(a)
