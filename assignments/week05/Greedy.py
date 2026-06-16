@@ -6,7 +6,7 @@ i=0
 kutak=[50,80,130,170,220,290,340,390]
 aktualis_kut=0
 
-while poz<cel:
+while poz+100<cel:
     while i<len(kutak) and kutak[i]<=poz+100:
         aktualis_kut = i
         # print(aktualis_kut)
